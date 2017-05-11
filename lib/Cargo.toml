@@ -1,0 +1,16 @@
+[package]
+name = "hyperfs-lib"
+version = "0.1.0"
+license = "MIT"
+authors = ["Axel Etcheverry <axel@etcheverry.biz>"]
+
+include = [
+  "README.md",
+  "Cargo.toml",
+  "src/*.rs",
+]
+
+[dependencies]
+
+[features]
+unstable = []
