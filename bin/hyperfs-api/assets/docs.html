@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hyperfs API Reference</title>
+        <!-- needed for adaptive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Reference for the API served by Hyperfs." />
+        <meta charset="utf-8" />
+        <!--
+        ReDoc doesn't change outer page styles
+        -->
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        api-logo {
+            height: 100px;
+            text-align: left !important;
+        }
+        api-logo img {
+            width: 230px !important;
+            margin: 20px 0 0 15px;
+        }
+        </style>
+    </head>
+    <body>
+        <redoc spec-url="swagger.yaml" hide-hostname="true" suppress-warnings="true" lazy-rendering></redoc>
+        <script src="//rebilly.github.io/ReDoc/releases/v1.2.0/redoc.min.js"></script>
+    </body>
+</html>

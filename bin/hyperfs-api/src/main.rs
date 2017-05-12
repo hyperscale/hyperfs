@@ -10,6 +10,20 @@ extern crate iron_cors;
 mod api;
 
 use self::api::handlers::health::HealthHandler;
+use self::api::handlers::bucket::{
+    BucketListHandler,
+    BucketCreateHandler,
+    BucketEditHandler,
+    BucketDetailHandler,
+    BucketDeleteHandler,
+    BucketDeleteBulkHandler
+};
+use self::api::handlers::object::{
+    ObjectListHandler,
+    ObjectCreateHandler,
+    ObjectDetailHandler,
+    ObjectDeleteHandler
+};
 use std::env;
 use config::{Config, File, FileFormat, Environment};
 use clap::App;
@@ -46,7 +60,23 @@ fn main() {
 
     let mut router = Router::new();
 
+    // Health
     router.get("/health", HealthHandler, "health");
+
+    // Bucket
+    router.get("/buckets", BucketListHandler, "bucket_list");
+    router.post("/buckets", BucketCreateHandler, "bucket_create");
+    router.put("/buckets/:id", BucketEditHandler, "bucket_edit");
+    router.get("/buckets/:id", BucketDetailHandler, "bucket_detail");
+    router.delete("/buckets/:id", BucketDeleteHandler, "bucket_delete");
+    router.delete("/buckets", BucketDeleteBulkHandler, "bucket_delete_bulk");
+
+    // Object
+    router.get("/:bucket", ObjectListHandler, "object_list");
+    router.post("/:bucket/*object", ObjectCreateHandler, "object_create");
+    router.get("/:bucket/*object", ObjectDetailHandler, "object_detail");
+    router.delete("/:bucket/*object", ObjectDeleteHandler, "object_delete");
+
     router.get("/", handler, "index");
     router.get("/:query", handler, "query");
 
