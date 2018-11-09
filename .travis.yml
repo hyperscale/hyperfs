@@ -1,8 +1,32 @@
 language: rust
+
+cache: cargo
+
 rust:
   - stable
   - beta
   - nightly
+
+before_script:
+  - |
+      cargo install --force cargo-travis &&
+      export PATH=$HOME/.cargo/bin:$PATH
+
 matrix:
   allow_failures:
+    - rust: beta
     - rust: nightly
+
+script:
+  - cd $ROOT_PATH/lib                 && cargo test
+  - cd $ROOT_PATH/bin/hyperfs         && cargo build
+  - cd $ROOT_PATH/bin/hyperfs-api     && cargo build
+  - cd $ROOT_PATH/bin/hyperfs-index   && cargo build
+  - cd $ROOT_PATH/bin/hyperfs-storage && cargo build
+
+after_success:
+  - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
+      cargo coveralls --all --verbose;
+    fi
+
+dist: trusty

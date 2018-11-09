@@ -4,16 +4,21 @@ description = "HyperFS Index Server"
 version = "0.1.0"
 license = "MIT"
 authors = ["Axel Etcheverry <axel@etcheverry.biz>"]
+repository = "https://github.com/hyperscale/hyperfs"
+readme = "README.md"
 
 include = [
   "README.md",
   "Cargo.toml",
-  "src/*.rs",
+  "src/**/*",
 ]
 
 [dependencies]
 clap        = "^2.24.1"
-hyperfs-lib = { version = "^0.1", path = "../../lib" }
+hyperfs-core-lib = { version = "^0.1", path = "../../lib/hyperfs-core" }
 
 [features]
 unstable = []
+
+[badges]
+travis-ci = { repository = "hyperscale/hyperfs" }

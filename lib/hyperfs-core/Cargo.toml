@@ -1,21 +1,27 @@
 [package]
-name = "hyperfs"
-description = "HyperFS Command Line"
+name = "hyperfs-core-lib"
+description = "HyperFS Core library"
 version = "0.1.0"
 license = "MIT"
 authors = ["Axel Etcheverry <axel@etcheverry.biz>"]
 repository = "https://github.com/hyperscale/hyperfs"
 readme = "README.md"
+categories = ["network-programming"]
+build = "build.rs"
 
 include = [
   "README.md",
   "Cargo.toml",
-  "src/**/*",
+  "src/**/*"
 ]
 
 [dependencies]
-clap        = "~2.24.1"
-hyperfs-core-lib = { version = "^0.1", path = "../../lib/hyperfs-core" }
+bytes = "~0.4.5"
+prost = "~0.2.3"
+prost-derive = "~0.2.3"
+
+[build-dependencies]
+prost-build = "~0.2.3"
 
 [features]
 unstable = []

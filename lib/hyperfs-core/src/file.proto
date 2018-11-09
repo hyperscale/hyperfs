@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package file;
+
+message Chunk {
+    bytes data = 1;
+    uint64 size = 2;
+    bytes checksum = 3;
+}
+
+message Metadata {
+    string filename = 1;
+    uint64 size = 2;
+    string mime_type = 3;
+    repeated Chunk chunks = 4;
+}
+

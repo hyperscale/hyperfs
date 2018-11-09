@@ -1,8 +1,8 @@
 [workspace]
 members = [
-    "lib/",
     "bin/hyperfs",
     "bin/hyperfs-api",
     "bin/hyperfs-index",
-    "bin/hyperfs-storage"
+    "bin/hyperfs-storage",
+    "lib/hyperfs-core"
 ]
