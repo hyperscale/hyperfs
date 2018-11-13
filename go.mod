@@ -4,6 +4,7 @@ require (
 	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/cenkalti/backoff v2.0.0+incompatible // indirect
+	github.com/euskadi31/go-service v1.2.0
 	github.com/gogo/protobuf v1.1.1
 	github.com/grandcat/zeroconf v0.0.0-20180329153754-df75bb3ccae1
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
@@ -17,6 +18,8 @@ require (
 	github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 // indirect
 	github.com/spf13/cobra v0.0.3
 	github.com/spf13/pflag v1.0.3 // indirect
+	github.com/spf13/viper v1.2.1
+	github.com/stretchr/testify v1.2.2
 	golang.org/x/crypto v0.0.0-20181106171534-e4dc69e5b2fd // indirect
 	golang.org/x/net v0.0.0-20181108082009-03003ca0c849 // indirect
 	golang.org/x/sys v0.0.0-20181107165924-66b7b1311ac8 // indirect
