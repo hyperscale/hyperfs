@@ -1,32 +1,31 @@
-language: rust
+language: go
 
-cache: cargo
+sudo: required
+dist: trusty
 
-rust:
-  - stable
-  - beta
-  - nightly
+notifications:
+  email: false
 
-before_script:
-  - |
-      cargo install --force cargo-travis &&
-      export PATH=$HOME/.cargo/bin:$PATH
+env:
+  - GO111MODULE=on
+
+go:
+  - 1.11.x
+  - master
+  - tip
 
 matrix:
+  fast_finish: true
   allow_failures:
-    - rust: beta
-    - rust: nightly
+    - go: master
+    - go: tip
+
+cache: apt
+
+install:
+  - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | bash -s -- -b $GOPATH/bin v1.10.2
+  - go get github.com/mattn/goveralls
 
 script:
-  - cd $ROOT_PATH/lib                 && cargo test
-  - cd $ROOT_PATH/bin/hyperfs         && cargo build
-  - cd $ROOT_PATH/bin/hyperfs-api     && cargo build
-  - cd $ROOT_PATH/bin/hyperfs-index   && cargo build
-  - cd $ROOT_PATH/bin/hyperfs-storage && cargo build
-
-after_success:
-  - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
-      cargo coveralls --all --verbose;
-    fi
-
-dist: trusty
+  - goveralls -v -race -covermode=atomic -service=travis-ci
+  - golangci-lint run
