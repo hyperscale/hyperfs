@@ -6,6 +6,7 @@ require (
 	github.com/cenkalti/backoff v2.0.0+incompatible // indirect
 	github.com/euskadi31/go-service v1.2.0
 	github.com/gogo/protobuf v1.1.1
+	github.com/google/uuid v1.0.0
 	github.com/grandcat/zeroconf v0.0.0-20180329153754-df75bb3ccae1
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
 	github.com/hashicorp/go-msgpack v0.0.0-20150518234257-fa3f63826f7c // indirect

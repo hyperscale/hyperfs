@@ -8,8 +8,10 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/euskadi31/go-service"
+	"github.com/hashicorp/memberlist"
 	"github.com/hyperscale/hyperfs/cmd/hyperfs-index/app/services"
 	"github.com/rs/zerolog/log"
 )
@@ -20,8 +22,19 @@ func Run() error {
 	signal.Notify(sig, os.Interrupt, syscall.SIGTERM)
 
 	_ = service.Get(services.LoggerKey)
+	m := service.Get(services.MemberlistKey).(*memberlist.Memberlist)
+
+	log.Info().Msg("Rinning")
 
 	<-sig
+
+	if err := m.Leave(2 * time.Second); err != nil {
+		log.Error().Err(err).Msg("memberlist.Leave")
+	}
+
+	if err := m.Shutdown(); err != nil {
+		log.Error().Err(err).Msg("memberlist.Shutdown")
+	}
 
 	log.Info().Msg("Shutdown")
 

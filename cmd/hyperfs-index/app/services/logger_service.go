@@ -24,7 +24,7 @@ func init() {
 
 		zerolog.SetGlobalLevel(cfg.Logger.Level())
 
-		zerolog.CallerSkipFrameCount = 3
+		zerolog.CallerSkipFrameCount = 2
 
 		logger := zerolog.New(os.Stdout).With().
 			Timestamp().
