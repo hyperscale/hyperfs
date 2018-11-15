@@ -16,8 +16,10 @@ import (
 	"github.com/spf13/viper"
 )
 
-// ConfigKey HyperFS index config service
-const ConfigKey = "service.config"
+// Services keys
+const (
+	ConfigKey = "service.config"
+)
 
 const name = "hyperfs-index"
 
@@ -33,7 +35,7 @@ func init() {
 		// nolint:gosec
 		_ = cmd.Parse(os.Args[1:])
 
-		cfg := &config.Configuration{}
+		cfg := config.NewConfiguration()
 
 		options := viper.New()
 

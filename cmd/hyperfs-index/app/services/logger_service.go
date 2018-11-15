@@ -15,8 +15,10 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-// LoggerKey logger service
-const LoggerKey = "service.logger"
+// Services keys
+const (
+	LoggerKey = "service.logger"
+)
 
 func init() {
 	service.Set(LoggerKey, func(c service.Container) interface{} {

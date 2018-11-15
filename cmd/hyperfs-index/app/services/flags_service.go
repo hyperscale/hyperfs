@@ -11,8 +11,10 @@ import (
 	"github.com/euskadi31/go-service"
 )
 
-// FlagsKey flags service
-const FlagsKey = "service.flags"
+// Services keys
+const (
+	FlagsKey = "service.flags"
+)
 
 func init() {
 	service.Set(FlagsKey, func(c service.Container) interface{} {

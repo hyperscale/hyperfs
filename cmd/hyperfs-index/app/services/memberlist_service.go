@@ -10,27 +10,41 @@ import (
 	"github.com/euskadi31/go-service"
 	"github.com/google/uuid"
 	"github.com/hashicorp/memberlist"
+	"github.com/hyperscale/hyperfs/cmd/hyperfs-index/app/cluster"
+	"github.com/hyperscale/hyperfs/cmd/hyperfs-index/app/config"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
 
-// MemberlistKey Hashicorp Memberlist service
-const MemberlistKey = "service.memberlist"
+// Services keys
+const (
+	MemberlistKey              = "service.memberlist"
+	MemberlistNodeDelegateKey  = "service.memberlist.node.delegate"
+	MemberlistEventDelegateKey = "service.memberlist.event.delegate"
+)
 
 func init() {
-	service.Set(MemberlistKey, func(c service.Container) interface{} {
-		logger := c.Get(LoggerKey).(zerolog.Logger)
+	service.Set(MemberlistEventDelegateKey, func(c service.Container) interface{} {
+		return cluster.NewEventDelegate(16)
+	})
 
-		events := make(chan memberlist.NodeEvent, 16)
+	service.Set(MemberlistNodeDelegateKey, func(c service.Container) interface{} {
+		return cluster.NewNodeDelegate()
+	})
+
+	service.Set(MemberlistKey, func(c service.Container) interface{} {
+		cfg := c.Get(ConfigKey).(*config.Configuration)
+		logger := c.Get(LoggerKey).(zerolog.Logger)
+		nodeDelegate := c.Get(MemberlistNodeDelegateKey).(memberlist.Delegate)
+		eventDelegate := c.Get(MemberlistEventDelegateKey).(cluster.EventDelegate)
 
 		conf := memberlist.DefaultLANConfig()
 		conf.Name = uuid.New().String()
-		conf.Delegate = &memberlistDelegate{}
+		conf.Delegate = nodeDelegate
 		//conf.BindPort = 0
-		conf.Events = &memberlist.ChannelEventDelegate{
-			Ch: events,
-		}
+		conf.Events = eventDelegate.Delegate()
 		conf.Logger = stdlog.New(logger, "", 0)
+		conf.SecretKey = []byte(cfg.Cluster.Key)
 
 		m, err := memberlist.Create(conf)
 		if err != nil {
@@ -40,7 +54,7 @@ func init() {
 		node := m.LocalNode()
 		log.Debug().Msgf("Local member %s:%d", node.Addr, node.Port)
 
-		go func(events chan memberlist.NodeEvent) {
+		go func(events <-chan memberlist.NodeEvent) {
 			for {
 				select {
 				case e := <-events:
@@ -69,41 +83,8 @@ func init() {
 					}
 				}
 			}
-		}(events)
+		}(eventDelegate.Events())
 
 		return m // *memberlist.Memberlist
 	})
-}
-
-type memberlistDelegate struct{}
-
-func (d *memberlistDelegate) NodeMeta(limit int) []byte {
-	log.Debug().Int("limit", limit).Msg("NodeMeta")
-
-	return []byte("region=fr")
-}
-
-func (d *memberlistDelegate) NotifyMsg(b []byte) {
-	log.Debug().Msgf("NotifyMsg: %s", string(b))
-
-	if len(b) == 0 {
-		return
-	}
-
-}
-
-func (d *memberlistDelegate) GetBroadcasts(overhead int, limit int) [][]byte {
-	log.Debug().Int("overhead", overhead).Int("limit", limit).Msg("GetBroadcasts")
-
-	return [][]byte{}
-}
-
-func (d *memberlistDelegate) LocalState(join bool) []byte {
-	log.Debug().Bool("join", join).Msg("LocalState")
-
-	return []byte{}
-}
-
-func (d *memberlistDelegate) MergeRemoteState(buf []byte, join bool) {
-	log.Debug().Bool("join", join).Msgf("MergeRemoteState: %s", string(buf))
 }
