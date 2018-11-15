@@ -1,0 +1,38 @@
+{
+    "Error log": {
+        "scope": "go",
+        "prefix": "log.Err",
+        "body": [
+            "log.Error().Err(err).Msg(\"$1\")",
+            "$2"
+        ],
+        "description": "Log error message"
+    },
+    "Warning log": {
+        "scope": "go",
+        "prefix": "log.War",
+        "body": [
+            "log.Warn().Msg(\"$1\")",
+            "$2"
+        ],
+        "description": "Log warning message"
+    },
+    "Info log": {
+        "scope": "go",
+        "prefix": "log.Inf",
+        "body": [
+            "log.Info().Msg(\"$1\")",
+            "$2"
+        ],
+        "description": "Log info message"
+    },
+    "Debug log": {
+        "scope": "go",
+        "prefix": "log.Deb",
+        "body": [
+            "log.Debug().Msg(\"$1\")",
+            "$2"
+        ],
+        "description": "Log debug message"
+    },
+}

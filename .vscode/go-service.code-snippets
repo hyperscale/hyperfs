@@ -1,0 +1,12 @@
+{
+    "Create service item": {
+        "scope": "go",
+        "prefix": "servi",
+        "body": [
+            "service.Set($1, func(c service.Container) interface{} {",
+            "\t$0",
+            "\treturn nil",
+            "})"
+        ]
+    }
+}

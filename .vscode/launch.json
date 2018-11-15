@@ -1,0 +1,44 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch hyperfs",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceRoot}/cmd/hyperfs",
+            "env": {},
+            "args": []
+        },
+        {
+            "name": "Launch hyperfs-api",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceRoot}/cmd/hyperfs-api",
+            "env": {},
+            "args": []
+        },
+        {
+            "name": "Launch hyperfs-index",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceRoot}/cmd/hyperfs-index",
+            "env": {},
+            "args": []
+        },
+        {
+            "name": "Launch hyperfs-storage",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceRoot}/cmd/hyperfs-storage",
+            "env": {},
+            "args": []
+        }
+    ]
+}
