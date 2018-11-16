@@ -12,6 +12,8 @@ require (
 	github.com/hashicorp/go-msgpack v0.0.0-20150518234257-fa3f63826f7c
 	github.com/hashicorp/go-multierror v1.0.0 // indirect
 	github.com/hashicorp/go-sockaddr v0.0.0-20180320115054-6d291a969b86 // indirect
+	github.com/hashicorp/go.net v0.0.0-20151006203346-104dcad90073 // indirect
+	github.com/hashicorp/mdns v0.0.0-20170221172940-4e527d9d8081
 	github.com/hashicorp/memberlist v0.1.0
 	github.com/miekg/dns v1.0.15 // indirect
 	github.com/pkg/errors v0.8.0
