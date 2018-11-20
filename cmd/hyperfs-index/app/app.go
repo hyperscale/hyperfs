@@ -5,20 +5,21 @@
 package app
 
 import (
+	"encoding/json"
+	"net/http"
 	"os"
 	"os/signal"
-	"net/http"
 	"syscall"
-	"encoding/json"
 	"time"
 
+	"github.com/euskadi31/go-server"
 	"github.com/euskadi31/go-service"
 	"github.com/hashicorp/memberlist"
 	"github.com/hyperscale/hyperfs/cmd/hyperfs-index/app/services"
 	"github.com/hyperscale/hyperfs/pkg/hyperfs/cluster"
 	"github.com/hyperscale/hyperfs/pkg/hyperfs/cluster/discover"
-	"github.com/rs/zerolog/log"
 	"github.com/pkg/errors"
+	"github.com/rs/zerolog/log"
 )
 
 // Run HyperFS Index server
@@ -30,6 +31,7 @@ func Run() error {
 	m := service.Get(services.MemberlistKey).(*memberlist.Memberlist)
 	cltr := service.Get(services.ClusterKey).(cluster.Cluster)
 	dscvr := service.Get(services.DiscoverKey).(discover.Discover)
+	router := service.Get(services.RouterKey).(*server.Router)
 
 	if err := cltr.Run(); err != nil {
 		return errors.Wrap(err, "cluster.Run")
@@ -48,22 +50,15 @@ func Run() error {
 
 	log.Info().Msg("Rinning")
 
-
-	http.HandleFunc("/health", func(w http.ResponseWriter, req *http.Request) {
-		w.WriteHeader(http.StatusOK)
-	})
-
-	http.HandleFunc("/members", func(w http.ResponseWriter, req *http.Request) {
+	router.AddRouteFunc("/members", func(w http.ResponseWriter, req *http.Request) {
 		json.NewEncoder(w).Encode(m.Members())
-	})
+	}).Methods(http.MethodGet)
 
 	go func() {
-		if err := http.ListenAndServe(":8000", nil); err != nil {
+		if err := http.ListenAndServe(":8000", router); err != nil {
 			log.Panic().Err(err).Msg("ListenAndServe")
 		}
 	}()
-
-
 
 	<-sig
 
