@@ -27,6 +27,8 @@ github.com/euskadi31/go-server v0.0.0-20180321164747-bb2714685867/go.mod h1:tGjF
 github.com/euskadi31/go-server v0.0.0-20181115103410-bb2714685867 h1:CWNEtmhsy3fS0H5iPGbUitLH/3Km08NR84gbKspGq3c=
 github.com/euskadi31/go-service v1.2.0 h1:YH6sSOv1NFta7vd/aGGJNEK/k7BckhfdPkFIF5q+9XM=
 github.com/euskadi31/go-service v1.2.0/go.mod h1:Vu3PQBD/elJ44N8KupR+id09BJ2AREa8mr0Y3s6xTzM=
+github.com/euskadi31/go-service v1.3.1 h1:FH5vONJ1lbuGCY3ckhbitn9DIrqAMMOFIJLlmWqtZ3Y=
+github.com/euskadi31/go-service v1.3.1/go.mod h1:Vu3PQBD/elJ44N8KupR+id09BJ2AREa8mr0Y3s6xTzM=
 github.com/fsnotify/fsnotify v1.4.7 h1:IXs+QLmnXW2CcXuY+8Mzv/fWEsPGWxqefPtCP5CnV9I=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/go-openapi/analysis v0.0.0-20171226173743-0db1e4cf47d6 h1:oDElN7vVcHPua1kAOBk/0DlSKs/Y8kxIDLCxgZ617XM=

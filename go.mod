@@ -9,7 +9,7 @@ require (
 	github.com/circonus-labs/circonus-gometrics v2.2.4+incompatible // indirect
 	github.com/circonus-labs/circonusllhist v0.1.0 // indirect
 	github.com/euskadi31/go-server v0.0.0-20180321164747-bb2714685867
-	github.com/euskadi31/go-service v1.2.0
+	github.com/euskadi31/go-service v1.3.1
 	github.com/gogo/protobuf v1.1.1 // indirect
 	github.com/google/uuid v1.0.0
 	github.com/hashicorp/consul v1.4.0 // indirect
