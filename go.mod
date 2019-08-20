@@ -20,7 +20,7 @@ require (
 	github.com/hashicorp/go-sockaddr v0.0.0-20180320115054-6d291a969b86 // indirect
 	github.com/hashicorp/go.net v0.0.0-20151006203346-104dcad90073 // indirect
 	github.com/hashicorp/mdns v0.0.0-20170221172940-4e527d9d8081
-	github.com/hashicorp/memberlist v0.1.0
+	github.com/hashicorp/memberlist v0.1.4
 	github.com/hashicorp/serf v0.8.1 // indirect
 	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
