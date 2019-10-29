@@ -22,7 +22,7 @@ require (
 	github.com/miekg/dns v1.0.15 // indirect
 	github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/rs/zerolog v1.15.0
+	github.com/rs/zerolog v1.16.0
 	github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 // indirect
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
