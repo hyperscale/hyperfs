@@ -25,7 +25,7 @@ require (
 	github.com/rs/zerolog v1.17.2
 	github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 // indirect
 	github.com/spf13/cobra v0.0.5
-	github.com/spf13/viper v1.6.1
+	github.com/spf13/viper v1.6.2
 	github.com/stretchr/testify v1.4.0
 	github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926 // indirect
 	google.golang.org/appengine v1.3.0 // indirect
