@@ -18,7 +18,7 @@ require (
 	github.com/rs/zerolog v1.19.0
 	github.com/spf13/cobra v0.0.7
 	github.com/spf13/viper v1.7.0
-	github.com/stretchr/testify v1.6.0
+	github.com/stretchr/testify v1.6.1
 	github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926 // indirect
 	gopkg.in/vmihailenco/msgpack.v2 v2.9.1 // indirect
 	labix.org/v2/mgo v0.0.0-20140701140051-000000000287 // indirect
