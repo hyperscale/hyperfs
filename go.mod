@@ -17,7 +17,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.19.0
 	github.com/spf13/cobra v0.0.7
-	github.com/spf13/viper v1.7.0
+	github.com/spf13/viper v1.7.1
 	github.com/stretchr/testify v1.6.1
 	github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926 // indirect
 	gopkg.in/vmihailenco/msgpack.v2 v2.9.1 // indirect
