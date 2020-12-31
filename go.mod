@@ -7,7 +7,7 @@ require (
 	github.com/circonus-labs/circonusllhist v0.1.0 // indirect
 	github.com/euskadi31/go-server v0.0.0-20191009113222-686c429d32ee
 	github.com/euskadi31/go-service v1.3.2
-	github.com/google/uuid v1.1.2
+	github.com/google/uuid v1.1.3
 	github.com/hashicorp/consul v1.4.0 // indirect
 	github.com/hashicorp/go-msgpack v0.5.5
 	github.com/hashicorp/go-retryablehttp v0.5.0 // indirect
