@@ -11,7 +11,7 @@ require (
 	github.com/hashicorp/consul v1.4.0 // indirect
 	github.com/hashicorp/go-msgpack v0.5.5
 	github.com/hashicorp/go-retryablehttp v0.5.0 // indirect
-	github.com/hashicorp/mdns v1.0.3
+	github.com/hashicorp/mdns v1.0.4
 	github.com/hashicorp/memberlist v0.2.3
 	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
 	github.com/pkg/errors v0.9.1
