@@ -1,0 +1,13 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - euskadi31
+  ignore:
+  - dependency-name: github.com/hashicorp/memberlist
+    versions:
+    - 0.2.3
