@@ -9,7 +9,7 @@ require (
 	github.com/hashicorp/mdns v1.0.5
 	github.com/hashicorp/memberlist v0.3.0
 	github.com/pkg/errors v0.9.1
-	github.com/rs/zerolog v1.26.0
+	github.com/rs/zerolog v1.26.1
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.10.0
 	github.com/stretchr/testify v1.7.0
