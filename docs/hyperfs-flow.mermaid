@@ -1,0 +1,12 @@
+---
+title: HyperFS Flow
+---
+flowchart LR
+    sdk@{ shape: proc, label: "HyperFS Client" }
+    api@{ shape: procs, label: "HyperFS API" }
+    storage@{ shape: procs, label: "HyperFS Storage" }
+    fdb@{ shape: cyl, label: "FoundationDB" }
+
+    sdk-->api
+    api-->fdb
+    api-->storage
