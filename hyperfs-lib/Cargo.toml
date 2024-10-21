@@ -1,0 +1,12 @@
+[package]
+name = "hyperfs-lib"
+description = "HyperFS Library"
+version = "0.1.0"
+edition = "2021"
+authors = ["Axel Etcheverry <axel@etcheverry.biz>"]
+license = "MIT"
+
+[dependencies]
+env_logger = "0.11.5"
+foundationdb = { version = "0.9.1", features = ["fdb-7_3"] }
+serde = { version = "1.0.210", features = ["derive"] }

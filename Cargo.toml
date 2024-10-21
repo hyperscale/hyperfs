@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["hyperfs-api", "hyperfs-cli", "hyperfs-lib", "hyperfs-storage"]
+
+[profile.release]
+lto = true
+strip = true
+opt-level = 3
+panic = 'abort'
+codegen-units = 1
+
+[profile.bench]
+strip = false

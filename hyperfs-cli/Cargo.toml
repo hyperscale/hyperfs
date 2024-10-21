@@ -1,0 +1,10 @@
+[package]
+name = "hyperfs-cli"
+description = "HyperFS Command Line Interface"
+version = "0.1.0"
+edition = "2021"
+authors = ["Axel Etcheverry <axel@etcheverry.biz>"]
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5.20", features = ["cargo", "derive"] }
