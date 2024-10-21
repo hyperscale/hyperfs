@@ -1,0 +1,9 @@
+[package]
+name = "hyperfs-api"
+description = "HyperFS API"
+version = "0.1.0"
+edition = "2021"
+authors = ["Axel Etcheverry <axel@etcheverry.biz>"]
+license = "MIT"
+
+[dependencies]

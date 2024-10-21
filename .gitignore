@@ -1,2 +1,4 @@
 target/
 old/
+members.txt
+*.old
