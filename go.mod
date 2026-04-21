@@ -2,7 +2,7 @@ module github.com/hyperscale/hyperfs
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
-	github.com/euskadi31/go-server v0.0.0-20191009113222-686c429d32ee
+	github.com/euskadi31/go-server v1.0.0
 	github.com/euskadi31/go-service v1.4.0
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/go-msgpack v1.1.5
@@ -35,7 +35,7 @@ require (
 	github.com/go-openapi/swag v0.0.0-20180908172849-dd0dad036e67 // indirect
 	github.com/go-openapi/validate v0.0.0-20180110180619-fa47bbf926a7 // indirect
 	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
-	github.com/golang/gddo v0.0.0-20181116215533-9bd4a3295021 // indirect
+	github.com/go-yaml/yaml v2.1.0+incompatible // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/btree v1.1.3 // indirect
 	github.com/gorilla/handlers v1.4.2 // indirect
@@ -47,6 +47,7 @@ require (
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/justinas/alice v0.0.0-20160910103822-1051eaf52fca // indirect
 	github.com/mailru/easyjson v0.0.0-20171120080333-32fa128f234d // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
@@ -68,9 +69,7 @@ require (
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
-	github.com/stretchr/objx v0.5.2 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	github.com/zenazn/goji v0.9.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/mod v0.26.0 // indirect
 	golang.org/x/net v0.42.0 // indirect
